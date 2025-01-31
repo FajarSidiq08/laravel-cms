@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
 {
@@ -13,9 +14,35 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('back.article.index', [
-            'articles' => Article::with('Category')->latest()->get()
-        ]);
+        if (request()->ajax()) {
+            $article = Article::with('Category')->latest()->get();
+
+            return DataTables::of($article)
+                //custom column
+                ->addColumn('category_id', function ($article) {
+                    return $article->Category->name;
+                })
+                ->addColumn('status', function ($article) {
+                    if ($article->status == 0) {
+                        return '<span class="badge bg-danger">Private</span>';
+                    } else {
+                        return '<span class="badge bg-success">Published</span>';
+                    }
+                })
+                ->addColumn('button', function ($article) {
+                    return '
+                    <div class="text-center">
+                            <a href="" class="btn btn-secondary">Detail</a>
+                            <a href="" class="btn btn-primary">Edit</a>
+                            <a href="" class="btn btn-danger">Delete</a>
+                    </div';
+                })
+                // panggil custom column
+                ->rawColumns(['category_id', 'status', 'button'])
+                ->make();
+        }
+
+        return view('back.article.index');
     }
 
     /**

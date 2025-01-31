@@ -50,29 +50,7 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($articles as $item)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->title }}</td>
-                            <td>{{ $item->Category->name }}</td>
-                            <td>{{ $item->views }}×</td>
-                            @if ($item->status == 0)
-                                <td>
-                                    <span class="badge bg-danger">Private</span>
-                                </td>
-                            @else
-                                <td>
-                                    <span class="badge bg-success">Published</span>
-                                </td>
-                            @endif
-                            <td>{{ $item->publish_date }}</td>
-                            <td class="text-center">
-                                <a href="" class="btn btn-secondary">Detail</a>
-                                <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                    @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -87,7 +65,41 @@
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.bootstrap5.js"></script>
     <script>
         $(document).ready(function() {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                processing: true,
+                serverside: true,
+                ajax: '{{ url()->current() }}',
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'title',
+                        name: 'title'
+                    },
+                    {
+                        data: 'category_id',
+                        name: 'category_id'
+                    },
+                    {
+                        data: 'views',
+                        name: 'views'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'publish_date',
+                        name: 'publish_date'
+                    },
+                    {
+                        data: 'button',
+                        name: 'button'
+                    },
+                ]
+            });
         })
     </script>
 @endpush
