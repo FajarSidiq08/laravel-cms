@@ -34,15 +34,25 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Slug</th>
-                        <th>Created At</th>
+                        <th>Title</th>
+                        <th>Kategori</th>
+                        <th>Status</th>
+                        <th>Publish Date</th>
                         <th>Function</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    @foreach ($articles as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->category_id }}</td>
+                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->publish_date }}</td>
+                    </tr>
 
+                    @endforeach
                 </tbody>
             </table>
         </div>
