@@ -55,7 +55,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->Category->name }}</td>
-                            <td>{{ $item->views }}</td>
+                            <td>{{ $item->views }}×</td>
                             @if ($item->status == 0)
                                 <td>
                                     <span class="badge bg-danger">Private</span>

@@ -1,6 +1,6 @@
 @extends('back.layout.template')
 
-@session('title', 'Dashboard - Admin')
+@section('title', 'Dashboard - Admin')
 
 @section('content')
     {{-- content --}}
