@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return back();
+        return back()->with('success', 'Categories has been created');
     }
 
     /**
