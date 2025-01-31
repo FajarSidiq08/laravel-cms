@@ -8,7 +8,20 @@
         </div>
 
         <div class="mt-3">
-            <button class="btn btn-success mb-2">Create</button>
+            <button class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalCreate">Create</button>
+
+            @if ($errors->any())
+                <div class="my-3">
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
+
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -38,6 +51,9 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Modal Create -->
+        @include('back.category.create-modal')
 
     </main>
 @endsection

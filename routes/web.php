@@ -11,4 +11,6 @@ Route::get('/', function () {
 // Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::resource('/categories', CategoryCOntroller::class);
+Route::resource('/categories', CategoryCOntroller::class)->only([
+    'index', 'store', 'update', 'destroy'
+]);
