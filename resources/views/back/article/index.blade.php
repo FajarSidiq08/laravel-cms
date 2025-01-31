@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.bootstrap5.css">
 @endpush
 
-@session('title', 'List Articles - Admin')
+@section('title', 'List Articles - Admin')
 
 @section('content')
     {{-- content --}}
@@ -41,7 +41,8 @@
                     <tr>
                         <th>No</th>
                         <th>Title</th>
-                        <th>Kategori</th>
+                        <th>Category</th>
+                        <th>Views</th>
                         <th>Status</th>
                         <th>Publish Date</th>
                         <th>Function</th>
@@ -54,7 +55,16 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->Category->name }}</td>
-                            <td>{{ $item->status }}</td>
+                            <td>{{ $item->views }}</td>
+                            @if ($item->status == 0)
+                                <td>
+                                    <span class="badge bg-danger">Private</span>
+                                </td>
+                            @else
+                                <td>
+                                    <span class="badge bg-success">Published</span>
+                                </td>
+                            @endif
                             <td>{{ $item->publish_date }}</td>
                             <td class="text-center">
                                 <a href="" class="btn btn-secondary">Detail</a>
