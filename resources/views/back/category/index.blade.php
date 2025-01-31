@@ -50,7 +50,7 @@
                             <td>{{ $item->created_at }}</td>
                             <td>
                                 <div class="text-center">
-                                    <button class="btn btn-secondary">Edit</button>
+                                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalUpdate{{ $item->id }}">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
                                 </div>
                             </td>
@@ -62,6 +62,9 @@
 
         <!-- Modal Create -->
         @include('back.category.create-modal')
+        
+        <!-- Modal Update -->
+        @include('back.category.update-modal')
 
     </main>
 @endsection

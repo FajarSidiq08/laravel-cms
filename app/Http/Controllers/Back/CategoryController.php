@@ -41,7 +41,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|min:3'
+        ]);
+
+        $data['slug'] = Str::slug($data['name']);
+
+        Category::find($id)->update($data);
+
+        return back()->with('success', 'Categories has been updated');
     }
 
     /**

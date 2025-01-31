@@ -15,7 +15,7 @@
                     <div class="mb-3">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name"
-                            class="form-control @error('name') is-invalid @enderror
+                            class="form-control @error('name') is-invalid @enderror"
                             value="{{ old('name') }}">
 
                         @error('name')
