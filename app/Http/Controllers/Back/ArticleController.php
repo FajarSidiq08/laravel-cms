@@ -14,7 +14,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('back.article.index', [
-            'articles' => Article::latest()->get()
+            'articles' => Article::with('Category')->latest()->get()
         ]);
     }
 
