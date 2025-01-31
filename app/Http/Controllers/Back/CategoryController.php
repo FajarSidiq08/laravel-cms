@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,7 @@ class CategoryController extends Controller
     {
         return view('back.category.index',
         [
-            'categories' => Category::get()
+            'categories' => Category::latest()->get()
         ]);
     }
 
@@ -27,6 +28,12 @@ class CategoryController extends Controller
         $data = $request->validate([
             'name' => 'required|min:3'
         ]);
+
+        $data['slug'] = Str::slug($data['name']);
+
+        Category::create($data);
+
+        return back();
     }
 
     /**
