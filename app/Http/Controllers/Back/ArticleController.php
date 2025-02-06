@@ -68,7 +68,7 @@ class ArticleController extends Controller
 
         $file = $request->file('img'); //img
         $fileName = uniqid().'.'.$file->getClientOriginalExtension(); //jpg,dll
-        $file->storeAs('public/back/img', $fileName); //public/back/aasdvndavkd.jpg
+        $file->storeAs('public/back/', $fileName); //public/back/aasdvndavkd.jpg
 
         $data['img'] = $fileName;
         $data['slug'] = Str::slug($data['title']);
