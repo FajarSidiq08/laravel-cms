@@ -42,7 +42,7 @@
                         <th>No</th>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Date</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -68,7 +68,7 @@
                         <th>No</th>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Date</th>
+                        <th>Views</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -77,7 +77,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->Category->name }}</td>
-                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->views }}x</td>
                             <td class="text-center">
                                 <a href="{{ url('article/'. $item->id) }}"" class="btn btn-sm btn-secondary">Detail</a>
                             </td>
