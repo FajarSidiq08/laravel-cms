@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -68,9 +69,9 @@ class ArticleController extends Controller
 
         $file = $request->file('img'); //img
         $fileName = uniqid().'.'.$file->getClientOriginalExtension(); //jpg,dll
-        $file->storeAs('public/back/', $fileName); //public/back/aasdvndavkd.jpg
+        $path = Storage::disk('public')->putFileAs('images', $file, $fileName); //public/back/aasdvndavkd.jpg
 
-        $data['img'] = $fileName;
+        $data['img'] = $path;
         $data['slug'] = Str::slug($data['title']);
 
         Article::create($data);
