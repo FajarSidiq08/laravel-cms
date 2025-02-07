@@ -40,7 +40,7 @@ class ArticleController extends Controller
                     <div class="text-center">
                             <a href="article/' . $article->id . '" class="btn btn-secondary">Detail</a>
                             <a href="article/' . $article->id . '/edit" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="#" onclick="deleteArticle(this)" data-id="'.$article->id.'" class="btn btn-danger">Delete</a>
                     </div';
                 })
                 // panggil custom column
@@ -133,6 +133,12 @@ class ArticleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Article::find($id);
+        Storage::disk('public')->delete('public/', $data->img);
+        $data->delete();
+
+        return response()->json([
+            'message' => 'Data article has been deleted',
+        ]);
     }
 }
