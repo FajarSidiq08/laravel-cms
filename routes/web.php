@@ -10,16 +10,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
-Route::resource('article', ArticleController::class);
-
-Route::resource('/categories', CategoryCOntroller::class)->only([
-    'index', 'store', 'update', 'destroy'
-]);
-
-Route::resource('/users', UserController::class);
+Route::middleware('auth')->group(function() {
+    // Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    
+    Route::resource('article', ArticleController::class);
+    
+    Route::resource('/categories', CategoryCOntroller::class)->only([
+        'index', 'store', 'update', 'destroy'
+    ]);
+    
+    Route::resource('/users', UserController::class);
+});
 
 Auth::routes();
 
