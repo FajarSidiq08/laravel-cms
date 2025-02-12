@@ -14,12 +14,16 @@
                                 Articles
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('categories') }}">
-                                <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                                Categories
-                            </a>
-                        </li>
+
+                        @if (auth()->user()->role == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('categories') }}">
+                                    <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                                    Categories
+                                </a>
+                            </li>
+                        @endif
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('users') }}">
                                 <span data-feather="users" class="align-text-bottom"></span>

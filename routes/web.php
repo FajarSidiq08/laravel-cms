@@ -13,13 +13,13 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function() {
     // Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index']);
-    
+
     Route::resource('article', ArticleController::class);
-    
+
     Route::resource('/categories', CategoryCOntroller::class)->only([
         'index', 'store', 'update', 'destroy'
-    ]);
-    
+    ])->middleware('UserAccess:1');
+
     Route::resource('/users', UserController::class);
 });
 
