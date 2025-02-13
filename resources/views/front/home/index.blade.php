@@ -29,7 +29,7 @@
                                 <div class="card-body">
                                     <div class="small text-muted">{{ $item->created_at->format('d-m-Y') }}</div>
                                     <h2 class="card-title h4"{{ $item->title }}</h2>
-                                    <p class="card-text">{{ Str::limit(strip_tags($item->desc), 1oo, '...') }}</p>
+                                    <p class="card-text">{{ Str::limit(strip_tags($item->desc), 100, '...') }}</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
