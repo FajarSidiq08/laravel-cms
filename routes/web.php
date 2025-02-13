@@ -12,6 +12,7 @@ use App\Http\Controllers\Front\HomeController;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/articles/search', [HomeController::class, 'index'])->name('search');
 
 Route::middleware('auth')->group(function() {
     // Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
