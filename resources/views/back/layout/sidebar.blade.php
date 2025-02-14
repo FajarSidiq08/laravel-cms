@@ -24,12 +24,22 @@
                             </li>
                         @endif
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('users') }}">
-                                <span data-feather="users" class="align-text-bottom"></span>
-                                Users
-                            </a>
-                        </li>
+                        @if (auth()->user()->role == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('users') }}">
+                                    <span data-feather="users" class="align-text-bottom"></span>
+                                    Users
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('users') }}">
+                                    <span data-feather="users" class="align-text-bottom"></span>
+                                    Profile
+                                </a>
+                            </li>
+                        @endif
+
                         <li class="nav-item">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
