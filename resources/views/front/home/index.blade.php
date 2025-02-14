@@ -7,7 +7,7 @@
             <!-- Blog entries-->
             <div class="col-lg-8">
                 <!-- Featured blog post-->
-                <div class="card mb-4 shadow-sm">
+                {{-- <div class="card mb-4 shadow-sm">
                     <a href="{{ url('p/' .$latest_post->slug) }}">
                         <img class="card-img-top featured-img" src="{{ asset('storage/' . $latest_post->img) }}" alt="..." />
                     </a>
@@ -17,7 +17,7 @@
                         <p class="card-text">{{ Str::limit(strip_tags($latest_post->desc), 200, '...') }}</p>
                         <a class="btn btn-primary" href="{{ url('p/' .$latest_post->slug) }}">Read more</a>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Nested row for non-featured blog posts-->
                 <div class="row">
@@ -30,11 +30,10 @@
                                 <div class="card-body card-height">
                                     <div class="small text-muted">
                                         {{ $item->created_at->format('d-m-Y') }}
-
                                         <a href="{{ url('category/'.$item->Category->slug) }}">{{ $item->Category->name }}</a>
                                     </div>
-                                    <h2 class="card-title h4"{{ $item->title }}</h2>
-                                    <p class="card-text">{{ Str::limit(strip_tags($item->desc), 100, '...') }}</p>
+                                    <h2 class="card-title">{{ $item->title }}</h2>
+                                    <p class="card-text fs-6">{{ Str::limit(strip_tags($item->desc), 100, '...') }}</p>
                                     <a class="btn btn-primary" href="{{ url('p/' .$item->slug) }}">Read more</a>
                                 </div>
                             </div>

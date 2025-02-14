@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $total_articles }} Articles</h5>
                         <p class="card-text">
-                            <a href="{{ url('articles') }}" class="text-white">View</a>
+                            <a href="{{ url('article') }}" class="text-white">View</a>
                         </p>
                     </div>
                 </div>

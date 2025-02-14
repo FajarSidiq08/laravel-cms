@@ -16,7 +16,7 @@ class HomeController extends Controller
         if ($keyword) {
             $articles = Article::with('Category')->where('title', 'like', '%' .$keyword. '%')->latest()->paginate(2);
         } else {
-            $articles = Article::with('Category')->latest()->paginate(2);
+            $articles = Article::with('Category')->latest()->paginate(4);
         }
 
         return view('front.home.index', [
