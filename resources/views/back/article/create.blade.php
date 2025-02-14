@@ -4,7 +4,7 @@
 
 @section('content')
     {{-- content --}}
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-12 px-md-5">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Create Articles</h1>
         </div>
@@ -40,7 +40,7 @@
                             <select name="category_id" id="cattegory_id" class="form-control">
                                 <option value="" hidden>-- choose --</option>
                                 @foreach ($categories as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -80,6 +80,11 @@
                 <div class="float-start">
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>
+
+                <div class="float-start ms-2">
+                    <a href="{{ url('article') }}" class="btn btn-secondary">Back</a>
+                </div>
+
             </form>
         </div>
 

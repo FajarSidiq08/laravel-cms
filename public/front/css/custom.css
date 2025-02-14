@@ -26,3 +26,245 @@
 .unstyle-categories {
     text-decoration: none;
 }
+
+.card {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-img-top {
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.category {
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+
+.card {
+    overflow: hidden;
+    background: #fff;
+}
+
+
+.card .btn-primary {
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover .btn-primary {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+
+.navbar-brand {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+.nav-item .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item .nav-link:hover::after {
+    width:70%;
+}
+
+
+.nav-item .nav-link.active {
+    color: #fff;
+}
+
+.nav-item .nav-link.active::after {
+    width: 70%;
+    background-color: #fff;
+}
+
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler:hover {
+    transform: scale(1.1);
+}
+
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.navbar.scrolled {
+    background: rgba(33, 37, 41, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Modern Header Styles */
+.page-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+.header-title {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #2d3436 30%, #636e72 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+.header-subtitle {
+    font-size: 1.4rem;
+    color: #636e72;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards 0.2s;
+}
+
+.unlink{
+    text-decoration: none;
+}
+
+.btn-upload {
+    background-color: darkorange;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+
+.btn-upload i {
+    margin-right: 8px;
+}
+
+
+.btn-upload:hover {
+    background-color: orange;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+.btn-logout {
+    background-color: rgb(203, 8, 8);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+
+.btn-logout i {
+    margin-right: 8px;
+}
+
+
+.btn-logout:hover {
+    background-color: rgb(255, 0, 0);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.header-title:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        min-height: 300px;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+}
